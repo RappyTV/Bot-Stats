@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@500&family=Fredoka+One&display=swap');
+
+body {
+    background-color: rgb(26, 26, 26);
+}
+
+h1, p {
+    color: #fff;
+    font-family: 'Baloo Chettan 2', cursive;
+}
+
+ul {
+    margin: 0 auto;
+    text-align: center;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+li {
+    border-radius: 20px;
+    border: solid 2px rgb(68, 68, 68);
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px 110px 20px 110px;
+    padding: 5rem;
+}
+
+img {
+    border-radius: 50%;
+    margin: 0;
+    height: 100px;
+    width: 100px;
+}
