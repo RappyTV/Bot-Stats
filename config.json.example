@@ -2,6 +2,7 @@
     "port": 3000,
     "base": "https://stats.rappytv.com",
     "iconRetreiver": "https://id.rappytv.com/<id>/icon",
+    "authorization": "",
     "bots": [
         {
             "name": "NAME",
