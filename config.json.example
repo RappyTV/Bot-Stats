@@ -3,6 +3,13 @@
     "base": "https://stats.rappytv.com",
     "iconRetreiver": "https://id.rappytv.com/<id>/icon",
     "authorization": "",
+    "notifications": {
+        "enabled": false,
+        "triggerModulus": 100,
+        "server": "https://msg.rappytv.com/<user>",
+        "user": "",
+        "key": ""
+    },
     "bots": [
         {
             "name": "NAME",
