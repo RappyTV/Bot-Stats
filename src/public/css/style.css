@@ -44,3 +44,22 @@ img {
     height: 100px;
     width: 100px;
 }
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff0d;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444444;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
