@@ -31,18 +31,19 @@ app.get(`/`, (req, res) => {
     res.render(`index`);
 });
 
+const sentNotifications = [];
 app.post(`/bots/:id`, (req, res) => {
     if(req.headers.authorization != server.cfg.authorization) return res.status(401).json({ error: `You are not authorized to do this!` });
     const bot = server.cfg.bots.find((bot) => bot.id == req.params.id);
     if(!bot) return res.status(400).json({ error: `This bot is not in our list!` });
     if(req.body.guilds == null) return res.status(400).json({ error: `You have to provide a guild count!` });
     if(typeof req.body.guilds != `number` || req.body.guilds < 0) return res.status(400).json({ error: `The guild count has to be a valid number above 0!` });
-    const previousCount = server.guilds.get(req.params.id);
     server.guilds.set(req.params.id, req.body.guilds);
     res.status(200).json({ message: `Successfully cached guild count!` });
 
     if(!server.cfg.notifications.enabled || req.body.guilds % server.cfg.notifications.triggerModulus != 0) return;
-    if(previousCount > req.body.guilds) return;
+    if(sentNotifications.includes(req.body.guilds)) return;
+    sentNotifications.push(req.body.guilds);
 
     axios.post(
         server.cfg.notifications.server.replaceAll(`<user>`, server.cfg.notifications.user),
